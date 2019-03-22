@@ -1,4 +1,3 @@
-let webpack = require('webpack')
 let cleanWebpackPlugin = require('clean-webpack-plugin')
 let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -10,7 +9,8 @@ module.exports = {
 
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js'
+    chunkFilename: '[name].chunk.js',
+    publicPath: './dist/'
   },
 
   optimization: {

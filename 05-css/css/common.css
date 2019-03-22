@@ -1,0 +1,28 @@
+body {
+  font-size: 20px;
+}
+
+:root {
+  --mainColor: red;
+}
+
+:global(.red) {
+  color: var(--mainColor);
+}
+
+:local(.green) {
+  color: green;
+}
+
+.box {
+  border: 3px solid var(--mainColor);
+  ;
+  width: 100px;
+  height: 100px;
+}
+
+.large {
+  composes: box;
+  width: 300px;
+  height: 300px;
+}
