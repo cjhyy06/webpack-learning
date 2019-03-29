@@ -1,0 +1,21 @@
+{
+  "name": "06-tree-shaking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "clean-webpack-plugin": "^2.0.1",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^4.0.0-beta.3",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.11",
+    "uglifyjs-webpack-plugin": "^2.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,21 @@
+div {
+  background: green;
+}
+
+:local(div) {
+  font-size: 30px;
+}
+
+:global(.divBorder) {
+  border: 3px solid #333;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px
+}
+
+.bigBox {
+  composes: box;
+}

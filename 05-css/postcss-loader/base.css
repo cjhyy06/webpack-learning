@@ -1,0 +1,70 @@
+/*变量*/
+$main_color:#ff6868;
+$link_color:#6491f8;
+$link_hover_color:#011c5c;
+
+/* 嵌套*/
+html {
+  padding: 0;
+  margin: 0;
+
+  body {
+    background: $main_color;
+
+    div {
+      a {
+        color: $link_color;
+
+        &:hover {
+          color: $link_hover_color;
+        }
+      }
+    }
+  }
+}
+
+/*条件判断*/
+$column_count:2;
+
+.column {
+  @if $column_count == 2 {
+    width: 50%;
+    float: left;
+    background: #6491f8;
+  } @else {
+    width: 100%;
+    background: #6491f8;
+  }
+}
+
+/*循环*/
+@for $i from 1 to 3 {
+  div:nth-of-type($i) {
+    margin-left: calc(10% * $i);
+  }
+}
+
+$div-bg-colors:red,
+blue,
+green;
+
+@each $color in $div-bg-colors {
+  .bg-color-$color {
+    background: $color;
+  }
+}
+
+/*Mixins*/
+@mixin base-button($font-size:12px, $color:blue ){
+ background:$color;
+ font-size:$font-size;
+}
+
+.middle-button {
+  @include base-button(18px);
+}
+
+.red-button {
+  @include base-button(12px,red);
+}
+
