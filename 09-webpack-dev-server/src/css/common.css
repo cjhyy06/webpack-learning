@@ -1,0 +1,21 @@
+body>div {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.img1 {
+  background: url('../assets/images/liyin.jpg') no-repeat;
+}
+
+.img2 {
+  background: url('../assets/images/reba.jpg') no-repeat;
+}
+
+.img3 {
+  background: url('../assets/images/shishi.jpg') no-repeat;
+}
+
+.img4 {
+  background: url('../assets/images/wangou.jpg') no-repeat;
+}

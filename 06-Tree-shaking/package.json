@@ -4,13 +4,23 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^4.0.0-beta.3",
     "webpack": "^4.29.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "glob-all": "^3.1.0",
     "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.6.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2"
   },
   "scripts": {

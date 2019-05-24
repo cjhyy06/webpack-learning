@@ -3,6 +3,7 @@ let cleanWebpackPlugin = require('clean-webpack-plugin')
 let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
+  mode: 'none',
   entry: {
     pageA: './pageA.js',
     pageB: './pageB.js'
@@ -32,6 +33,9 @@ module.exports = {
           minChunks: 2, //代码复 2 次以上的抽离
         }
       }
+    },
+    runtimeChunk: {
+      name: 'manifest'
     }
   },
 

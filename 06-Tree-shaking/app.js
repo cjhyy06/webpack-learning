@@ -1,8 +1,11 @@
 import './base.css'
-import { add } from './base.js'
+import { add, Person, sayHello } from './base.js'
 // import _ from 'lodash'
 
-let div = document.createElement('div')
 
-div.innerText = ` 1 + 2 = ${add(1,2)}`
-document.body.appendChild(div)
+console.log(add())
+
+let zhangsan = new Person('张三')
+console.log(zhangsan.name)
+
+sayHello()
