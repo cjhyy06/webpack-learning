@@ -1,6 +1,7 @@
 export function add() { return 'this is add function' }
 
 export function minus() { return 'this is minus function' }
+// module.exports = function minus() { return 'this is minus function' }
 
 export function multi() { return 'this is multi function' }
 

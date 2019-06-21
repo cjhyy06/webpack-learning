@@ -1,5 +1,5 @@
 div {
-  background: green;
+  background: rgb(152, 187, 152);
 }
 
 :local(div) {
@@ -18,4 +18,5 @@ div {
 
 .bigBox {
   composes: box;
+  border: 10px solid yellow;
 }

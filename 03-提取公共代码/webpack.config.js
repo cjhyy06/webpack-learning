@@ -19,10 +19,10 @@ module.exports = {
 
       cacheGroups: { //缓存组 缓存公共代码
 
-        vendor: {
+        vendor1: {
           test: /[\\/]node_modules[\\/](lodash|jquery)[\\/]/,
           name: 'vendors',
-          chunks: 'all',
+          chunks: 'all', //这个是告诉webpack去哪些chunk寻找优化代码
           priority: 1
         },
 

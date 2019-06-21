@@ -16,9 +16,29 @@ module.exports = {
     publicPath: ''
   },
   devServer: {
-    port: '9000',
+    port: '9001',
     contentBase: './dist',
-    hot: true
+    hot: true,
+    proxy: {
+      "/qxb": {
+        target: 'https://b.qixin.com',
+        secure: false,
+        changeOrigin: true
+      }
+    },
+    // historyApiFallback: true
+    historyApiFallback: {
+      verbose: true,
+      rewrites: [
+        {
+          from: /\/test$/,
+          to: function(context) {
+            console.log(context.parsedUrl, context.match)
+            return '/'
+          }
+        }
+      ]
+    }
   },
   module: {
     rules: [

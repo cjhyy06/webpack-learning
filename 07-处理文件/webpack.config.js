@@ -64,7 +64,8 @@ module.exports = {
             options: {
               limit: 9000,
               name: '[name].[ext]',
-              outputPath: 'images'
+              outputPath: 'images',
+              publicPath: '../images'
             }
           },
           {
@@ -79,6 +80,18 @@ module.exports = {
             }
           }
          ]
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg)(\?[\s\S])?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'fonts',
+              name: '[name]-[hash:8].[ext]'
+            }
+          }
+        ]
       }
     ]
   },

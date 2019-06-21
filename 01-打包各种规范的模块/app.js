@@ -10,3 +10,7 @@ sum3(1, 2)
 require(['./amd.js'], function(sum2) {
   sum2(1, 2)
 })
+
+//non moduled
+let sayHello = require('exports-loader?sayHello!./non-module.js')
+sayHello()
