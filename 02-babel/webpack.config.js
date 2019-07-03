@@ -1,10 +1,11 @@
+const webpack = require('webpack')
 module.exports = {
   entry: {
     app: './app.js'
   },
 
   output: {
-    filename: '[name].[hash:8].js'
+    filename: '[name].js'
   },
 
   module: {

@@ -1,11 +1,11 @@
 let cleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   entry: {
-    index: ['./non-module.js', './app.js']
+    index: './app.js'
   },
   output: {
     filename: '[name].min.js',
-    // libraryTarget: 'umd'
+    libraryTarget: 'var'
   },
   plugins: [
 

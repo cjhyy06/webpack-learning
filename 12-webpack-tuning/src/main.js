@@ -6,8 +6,8 @@ import router from './router'
 import { Button, Select, CheckBox } from 'element-ui'
 
 Vue.use(Button.name, Button)
-Vue.use(Select.name, Select)
 Vue.use(CheckBox.name, CheckBox)
+Vue.use(Select.name, Select)
 
 Vue.config.productionTip = false
 

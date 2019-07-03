@@ -1,12 +1,16 @@
+let path = require('path')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let CleanWebpackPlugin = require('clean-webpack-plugin')
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
+let SpritesmithPlugin = require('webpack-spritesmith')
+let ImageminPlugin = require('imagemin-webpack-plugin').default
 
 let extractCss = new MiniCssExtractPlugin({
   filename: 'css/[name].bundle.css'
 })
 
 module.exports = {
+  mode: 'production',
   entry: {
     app: './src/app.js'
   },
@@ -40,20 +44,20 @@ module.exports = {
               import: true
             }
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                  require('postcss-sprites')({
-                  retina: true,
-                  verbose: true,
-                  stylesheetPath: './dist/css/',
-                  spritePath: './dist/images/'
-                })
-              ]
-            }
-          }
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     ident: 'postcss',
+          //     plugins: [
+          //         require('postcss-sprites')({
+          //         retina: true,
+          //         verbose: true,
+          //         stylesheetPath: './dist/css/',
+          //         spritePath: './dist/images/'
+          //       })
+          //     ]
+          //   }
+          // }
         ]
       },
       {
@@ -62,23 +66,23 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 9000,
+              limit: 1999000,
               name: '[name].[ext]',
               outputPath: 'images',
               publicPath: '../images'
             }
           },
-          {
-            loader: 'img-loader',
-            options: {
-              plugins: [
-                require('imagemin-mozjpeg')({
-                  progressive: true,
-                  arithmetic: false
-                })
-              ]
-            }
-          }
+          // {
+          //   loader: 'img-loader',
+          //   options: {
+          //     plugins: [
+          //       require('imagemin-mozjpeg')({
+          //         progressive: true,
+          //         arithmetic: false
+          //       })
+          //     ]
+          //   }
+          // }
          ]
       },
       {
@@ -88,7 +92,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'fonts',
-              name: '[name]-[hash:8].[ext]'
+              name: '[name]-[hash:8].[ext]',
+              publicPath: '../fonts'
             }
           }
         ]
@@ -97,12 +102,39 @@ module.exports = {
   },
   plugins: [
     extractCss,
+
     new HtmlWebpackPlugin({
       template: './src/index.html',
       minify: {
         collapseWhitespace: false
       }
     }),
+
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve(__dirname, 'src/assets/images'),
+        glob: '*.jpg'
+      },
+      target: {
+        image: path.resolve(__dirname, 'src/assets/images/sprite.png'),
+        css: path.resolve(__dirname, 'src/css/sprite.css')
+      },
+      apiOptions: {
+        cssImageRef: '../assets/images/sprite.png' //cssImageRef为必选项
+      }
+    }),
+
+    new ImageminPlugin({
+      test: /\.(png|jpg|jpeg|svg)$/,
+      pngquant: '65-80',
+      plugins: [
+        require('imagemin-mozjpeg')({
+          progressive: true,
+          arithmetic: false
+        })
+      ]
+    }),
+
     new CleanWebpackPlugin()
   ]
 }

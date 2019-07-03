@@ -1,0 +1,42 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-liyin {
+  background-image: url(../assets/images/sprite.png);
+  background-position: 0px 0px;
+  width: 250px;
+  height: 250px;
+}
+.icon-reba {
+  background-image: url(../assets/images/sprite.png);
+  background-position: -250px 0px;
+  width: 250px;
+  height: 250px;
+}
+.icon-shishi {
+  background-image: url(../assets/images/sprite.png);
+  background-position: 0px -250px;
+  width: 250px;
+  height: 250px;
+}
+.icon-wangou {
+  background-image: url(../assets/images/sprite.png);
+  background-position: -250px -250px;
+  width: 250px;
+  height: 250px;
+}
